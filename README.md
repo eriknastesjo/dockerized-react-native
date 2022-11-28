@@ -10,8 +10,11 @@ Open up your wifi network properties.
 Scroll down and copy your IP address (IPv4).
 ![List of properties](/react-native/react_native/assets/3.png)
 
-Create file .env in folder react-native/react_native.
-Add your IP address as a variable in your .env file:
+Create two files .env
+- in root folder.
+- in folder react-native/react_native (two folders down)
+
+Add your IP address as a variable in both .env files:
 `IP="xxx.xxx.x.xx"`
 
 ## Docker
