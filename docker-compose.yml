@@ -1,0 +1,41 @@
+version: "3"
+networks:
+  dbwebb:
+
+services:
+  express:
+    build:
+      context: ./express
+      target: builder
+      dockerfile: Dockerfile
+    container_name: express
+    restart: always
+    stdin_open: true
+    tty: true
+    ports:
+      - "3000:3000"
+    networks:
+      dbwebb:
+
+  react_native:
+    build:
+      context: ./react-native
+      args:
+        - NODE_ENV=development
+    container_name: react-native
+    environment:
+      - EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
+      - REACT_NATIVE_PACKAGER_HOSTNAME=${IP}
+    tty: true
+    ports:
+      - '19001:19001'
+      - '19002:19002'
+      - '19000:19000'
+    healthcheck:
+      disable: true
+    links:
+      - express:express
+    depends_on:
+        - express
+    networks:
+      dbwebb:
