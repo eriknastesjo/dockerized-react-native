@@ -13,6 +13,7 @@ Scroll down and copy your IP address (IPv4).
 Create two files .env
 - in root folder.
 - in folder react-native/react_native (two folders down)
+
 Add your IP address as a variable in both .env files:
 `IP="xxx.xxx.x.xx"`
 ![Folder tree structure](/react-native/react_native/assets/4.png)
